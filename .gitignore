@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Temporary résumé used only for local testing
+/public/documents/David-Solano-Resume.pdf
