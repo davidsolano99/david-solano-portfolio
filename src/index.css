@@ -17,7 +17,7 @@
   --space-16: 4rem;
 
   --page-gutter: clamp(1.25rem, 4vw, 4.5rem);
-  --content-max-width: 100rem;  
+  --content-max-width: 120rem;  
 
   font-family: var(--font-body);
   line-height: 1.5;
