@@ -1,6 +1,8 @@
+import './Header.css'
+
 function Header(){
     return (
-        <header className="site-header">
+        <header id="top" className="site-header">
             {/* Add a brand link containing your name*/}
             <a className="site-brand" href="#top">
                 David Solano
