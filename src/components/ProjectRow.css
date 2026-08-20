@@ -1,0 +1,126 @@
+.project-row {
+  min-height: 20rem;
+  padding-block: var(--space-8);
+
+  display: grid;
+  grid-template-columns: clamp(7rem, 7vw, 8rem) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(var(--space-4), 2vw, var(--space-8));
+}
+
+.project-row:nth-child(odd) {
+  padding-right: clamp(var(--space-6), 3vw, var(--space-12));
+}
+
+.project-row:nth-child(even) {
+  padding-left: clamp(var(--space-6), 3vw, var(--space-12));
+  border-left: 1px solid var(--color-line);
+}
+
+.project-row:nth-child(n + 3) {
+  border-top: 1px solid var(--color-line);
+}
+
+.project-row__number {
+  color: rgb(28 199 193 / 8%);
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 8vw, 8rem);
+  font-weight: 600;
+  line-height: 0.8;
+  -webkit-text-stroke: 1px var(--color-accent);
+}
+
+.project-row__eyebrow {
+  margin: 0 0 var(--space-3);
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.project-row__content h3 {
+  color: var(--color-text);
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  line-height: 1.1;
+}
+
+@media (max-width: 56rem) {
+  .project-row:nth-child(odd),
+  .project-row:nth-child(even) {
+    padding-inline: 0;
+  }
+
+  .project-row:nth-child(even) {
+    border-left: 0;
+  }
+
+  .project-row:nth-child(n + 2) {
+    border-top: 1px solid var(--color-line);
+  }
+}
+
+.project-row__content {
+  min-width: 0;
+}
+
+.project-row__summary {
+  max-width: 38rem;
+  margin: var(--space-4) 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.project-row__technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-row__technologies li {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--color-line);
+
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.project-row__repository {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  margin: var(--space-4) 0 0;
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-row__repository::before {
+  width: 1.25rem;
+  height: 1px;
+  background-color: var(--color-accent);
+  content: "";
+}
+
+@media (max-width: 36rem) {
+  .project-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .project-row__number {
+    font-size: 4.5rem;
+  }
+}
