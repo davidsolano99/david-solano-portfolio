@@ -1,0 +1,124 @@
+.skills-section {
+  width: min(100%, var(--content-max-width));
+  margin-inline: auto;
+  padding: 0 var(--page-gutter) clamp(4rem, 8vw, 8rem);
+}
+
+.skills-section__header {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.35fr) minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(var(--space-8), 7vw, 8rem);
+
+  margin-bottom: clamp(var(--space-8), 5vw, var(--space-12));
+}
+
+.skills-section__header h2 {
+  color: var(--color-text);
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 0.9;
+}
+
+.skills-section__header p {
+  max-width: 48rem;
+  margin: 0;
+
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.skills-section__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.skill-group {
+  min-width: 0;
+  padding: clamp(var(--space-6), 4vw, var(--space-12));
+}
+
+.skill-group:nth-child(even) {
+  border-left: 1px solid var(--color-line);
+}
+
+.skill-group:nth-child(n + 3) {
+  border-top: 1px solid var(--color-line);
+}
+
+.skill-group h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+}
+
+.skill-group h3::before {
+  width: 1.5rem;
+  height: 1px;
+  flex: 0 0 auto;
+
+  background: var(--color-accent);
+  content: "";
+}
+
+.skill-group > p {
+  max-width: 38rem;
+  margin: var(--space-4) 0 0;
+
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.skill-group ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-group li {
+  padding: 0.4rem 0.7rem;
+
+  color: var(--color-text);
+  border: 1px solid var(--color-line);
+
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 64rem) {
+  .skills-section__header {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 48rem) {
+  .skills-section__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-group {
+    padding-inline: 0;
+  }
+
+  .skill-group:nth-child(even) {
+    border-left: 0;
+  }
+
+  .skill-group + .skill-group {
+    border-top: 1px solid var(--color-line);
+  }
+}

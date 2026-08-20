@@ -2,6 +2,8 @@ import './App.css'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import FeaturedProjects from './components/FeaturedProjects'
+import About from './components/About'
+import Skills from './components/Skills'
 
 function App() {
 
@@ -10,7 +12,9 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <FeaturedProjects />        
+        <FeaturedProjects />   
+        <About />  
+        <Skills />   
       </main>
     </>
   )
