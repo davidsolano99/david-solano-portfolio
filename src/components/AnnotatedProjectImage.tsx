@@ -188,7 +188,6 @@ function AnnotatedProjectImage({
           aria-atomic="true"
         >
           <p className="project-annotation__popover-label">
-            Annotation{" "}
             {String(activeAnnotation.number).padStart(2, "0")}
           </p>
 
