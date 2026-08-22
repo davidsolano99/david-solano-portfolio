@@ -17,6 +17,7 @@ export type ProjectMedia = {
   src: string;
   description: string;
   caption: string;
+  layout?: "compact" | "full";
   poster?: string;
 
   annotationCanvas?: {
@@ -49,6 +50,161 @@ export type ProjectWorkflowStep = {
 }
 
 export const projectCaseStudies: ProjectCaseStudy[] = [
+
+  {
+    projectSlug: "quality-control-testing-application",
+
+    tagline:
+      "A Windows desktop application that turns complex embedded-device quality-control procedures into a repeatable, traceable testing workflow.",
+
+    overview:
+      "I independently designed and built this Python/PyQt6 application to guide operators through device configuration, automated validation, communication testing, result review, and structured reporting. The application coordinates software, firmware, embedded hardware, serial devices, and supporting services within one desktop workflow.",
+
+    challenge:
+      "Quality-control testing varied across multiple hardware profiles and communication configurations. Operators needed to enter device-specific information, validate firmware and settings, execute lengthy test sequences, investigate failures, and preserve complete results without missing steps or applying the wrong test plan.",
+
+    solution:
+      "The application uses profile and test-plan registries to select the appropriate interface fields and validation sequence for each supported device configuration. It validates operator input, coordinates serial communication, executes phased tests through background workers, compares expected and observed values, displays progress and failures, and produces a formatted Excel report for traceability.",
+
+    contributions: [
+      "Defined the application architecture and end-to-end quality-control workflow.",
+      "Designed and built the Windows desktop interface with Python and PyQt6.",
+      "Created a profile-driven system that adapts the interface and testing requirements to different device configurations.",
+      "Implemented input validation for firmware versions, identifiers, addresses, communication modes, and device settings.",
+      "Built serial-communication workflows for configuring devices and collecting test responses.",
+      "Organized automated validation into reusable, phased test plans.",
+      "Used background workers and PyQt signals to run long testing operations without freezing the interface.",
+      "Implemented controlled web-based communication verification with Selenium.",
+      "Generated structured Excel test reports using OpenPyXL.",
+      "Added progress reporting, structured logging, failure feedback, and result review.",
+      "Created and maintained PVT and PVT-checklist release documentation for each software release.",
+    ],
+
+    validation: [
+      "Verified that selecting a device profile displays the correct inputs, options, and test requirements.",
+      "Compared expected and observed firmware, configuration, communication, and hardware values.",
+      "Tested successful, failed, incomplete, and communication-loss scenarios.",
+      "Reviewed operator feedback and progress reporting during each testing phase.",
+      "Checked generated Excel reports for completeness, formatting, and result accuracy.",
+      "Used PVT-aligned checklists and release documentation to validate application releases.",
+    ],
+
+    outcome:
+      "The application converted a complex collection of device-specific procedures into a guided and repeatable quality-control workflow. It improved consistency, preserved structured evidence for each tested unit, and gave operators clearer information when a configuration or validation step failed.",
+
+    technicalHighlights: [
+      "Python and PyQt6 Windows desktop application",
+      "Profile-driven dynamic interface configuration",
+      "Reusable test-plan registry",
+      "Serial device communication with PySerial",
+      "Phased software, firmware, hardware, and connectivity validation",
+      "Background workers and PyQt signal coordination",
+      "Selenium-based communication verification",
+      "Structured Excel reporting with OpenPyXL",
+      "Input validation, logging, and failure handling",
+      "PVT-aligned release documentation",
+    ],
+
+    workflow: [
+      {
+        number: 1,
+        title: "Select Device Profile",
+        description:
+          "Loads the interface fields, configuration rules, and test plan required for the selected device profile.",
+      },
+      {
+        number: 2,
+        title: "Validate Unit Information",
+        description:
+          "Checks identifiers, firmware versions, communication settings, addresses, and other required operator inputs.",
+      },
+      {
+        number: 3,
+        title: "Establish Communication",
+        description:
+          "Connects to the selected serial interface and confirms that the application can communicate with the device.",
+      },
+      {
+        number: 4,
+        title: "Execute Test Plan",
+        description:
+          "Runs the profile-specific validation phases across configuration, firmware, communications, connectivity, and embedded hardware.",
+      },
+      {
+        number: 5,
+        title: "Review Results",
+        description:
+          "Presents progress, expected and observed values, failures, and diagnostic information to the operator.",
+      },
+      {
+        number: 6,
+        title: "Generate Report",
+        description:
+          "Produces a structured quality-control report containing the unit information, completed tests, and final result.",
+      },
+    ],
+
+    privacyNote:
+      "The source repository, organization and customer information, device-specific configurations, production addresses, internal URLs, credentials, email settings, and operational test records remain private. Portfolio media will use sanitized or demonstration values.",
+
+    media: [
+      {
+        type: "image",
+        src: `${import.meta.env.BASE_URL}project-media/quality-control-testing-application/QCA-login.png`,
+        description:
+          "QCA authorization window with email and password fields.",
+        caption:
+          "Authorized users begin through the application’s login window.",
+        layout: "compact",
+      },
+      {
+        type: "image",
+        src: `${import.meta.env.BASE_URL}project-media/quality-control-testing-application/QCA-newUser.png`,
+        description:
+          "New-user access-request form with name, email, and password fields.",
+        caption:
+          "A built-in request form supports the controlled onboarding of new application users.",
+        layout: "compact",
+      },
+      {
+        type: "image",
+        src: `${import.meta.env.BASE_URL}project-media/quality-control-testing-application/QCA-profileNode.png`,
+        description:
+          "QCA profile setup window showing the initial device-type selection.",
+        caption:
+          "The profile-driven setup begins with guided device and communication selections.",
+        layout: "compact",
+      },
+      {
+        type: "image",
+        src: `${import.meta.env.BASE_URL}project-media/quality-control-testing-application/QCA-profileNodeSelection.png`,
+        description:
+          "QCA profile setup summary showing the resolved configuration node.",
+        caption:
+          "The completed selection resolves to a supported profile with locked defaults and required firmware fields.",
+        layout: "compact",
+      },
+      {
+        type: "image",
+        src: `${import.meta.env.BASE_URL}project-media/quality-control-testing-application/QCA-mainMenu.png`,
+        description:
+          "QCA main testing interface configured for a selected demonstration profile.",
+        caption:
+          "The profile-aware testing interface displays the inputs and configuration controls required for the selected device.",
+        layout: "full",
+      },
+      {
+        type: "video",
+        src: `${import.meta.env.BASE_URL}project-media/quality-control-testing-application/QCA-demo.mp4`,
+        description:
+          "Sanitized demonstration of the QCA testing process and progress reporting.",
+        caption:
+          "Demonstration data shows the automated testing sequence, progress feedback, validation results, and successful completion.",
+        layout: "full",
+      },
+    ],
+  },  
+
   {
     projectSlug: "radio-dnet-survey-tool",
     tagline:

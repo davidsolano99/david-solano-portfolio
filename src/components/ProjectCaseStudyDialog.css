@@ -350,12 +350,25 @@
 
 .project-dialog__media {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: var(--space-6);
   max-width: 52rem;
 }
 
 .project-dialog__media figure {
   margin: 0;
+}
+
+.project-dialog__media-item--full,
+.project-annotation {
+  grid-column: 1 / -1;
+}
+
+.project-dialog__media-item--compact img {
+  width: 100%;
+  height: clamp(14rem, 28vw, 22rem);
+  object-fit: contain;
 }
 
 .project-dialog__media img,
@@ -583,4 +596,21 @@
 .project-annotation__controls > span,
 .project-annotation__controls button {
   font-size: 0.65rem;
+}
+
+@media (max-width: 48rem) {
+  .project-dialog__media {
+    grid-template-columns: 1fr;
+  }
+
+  .project-dialog__media-item--full,
+  .project-annotation {
+    grid-column: auto;
+  }
+
+  .project-dialog__media-item--compact img {
+    width: 100%;
+    height: auto;
+    max-height: 28rem;
+  }
 }

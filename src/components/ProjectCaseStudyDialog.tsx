@@ -94,7 +94,12 @@ function ProjectCaseStudyDialog({
             }
 
             return (
-                <figure key={mediaKey}>
+                <figure
+                  key={mediaKey}
+                  className={`project-dialog__media-item project-dialog__media-item--${
+                    media.layout ?? "full"
+                  }`}
+                >
                 {media.type === "image" ? (
                     <img
                         src={media.src}
