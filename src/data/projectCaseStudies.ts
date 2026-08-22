@@ -39,7 +39,14 @@ export type ProjectCaseStudy = {
   technicalHighlights: string[];
   privacyNote: string;
   media: ProjectMedia[];
+  workflow?: ProjectWorkflowStep[]
 };
+
+export type ProjectWorkflowStep = {
+  number: number
+  title: string
+  description: string
+}
 
 export const projectCaseStudies: ProjectCaseStudy[] = [
   {
@@ -193,6 +200,130 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
             caption:
             "Sanitized demonstration of the KML output generated from processed receiver and GPS measurements.",
         },   
-        ],
+        ],     
   },
+
+  {
+    projectSlug: "bifrost-automation-system",
+
+    tagline:
+      "A headless Raspberry Pi automation pipeline that coordinates member selection, room booking, email verification, confirmation processing, reporting, and schedule synchronization.",
+
+    overview:
+      "I independently designed and deployed Bifrost as an operational Raspberry Pi automation system. It manages a recurring room-booking workflow from eligible-member selection through browser-based booking, email verification, confirmation validation, persistent record updates, reporting, and Notion synchronization.",
+
+    challenge:
+      "The original workflow required repeatedly reviewing member eligibility, finding matching room availability, submitting bookings within specific time windows, responding to verification emails, validating confirmation details, and updating several records. The process was repetitive and time-sensitive, and a failure in one external system could interrupt the remaining workflow.",
+
+    solution:
+      "Bifrost organizes the work into a stage-gated pipeline. It selects eligible members for same-day and seven-day booking targets, creates structured booking jobs, runs browser-booking attempts in separate processes, applies retries and shared timeouts, verifies booking emails, validates confirmation details against expected dates and times, and then updates persistent records, generates a daily report, and synchronizes confirmed bookings with Notion.",
+
+    contributions: [
+      "Defined the end-to-end automation workflow and its stage boundaries.",
+      "Implemented eligibility rules and selection logic for same-day and seven-day booking targets.",
+      "Built the Playwright automation that navigates booking calendars, identifies valid two-hour room combinations, and submits booking requests.",
+      "Used separate worker processes so one stalled browser session would not block every booking job.",
+      "Added retry limits, shared timeouts, process termination, and safe stage-stop conditions.",
+      "Automated Outlook verification-email handling and confirmation extraction.",
+      "Validated confirmation details against the expected recipient, booking date, and starting time.",
+      "Updated persistent member-booking records after confirmed reservations.",
+      "Generated CSV reports and distributed daily booking summaries by email.",
+      "Synchronized confirmed booking information with a Notion database.",
+      "Deployed the workflow on Raspberry Pi OS using a virtual environment and scheduled cron execution.",
+      "Documented installation, remote administration, dependencies, and recovery procedures.",
+    ],
+
+    validation: [
+      "Verified that selection produces two eligible seven-day targets and two different eligible same-day targets.",
+      "Checked that room selection requires two available time slots belonging to the same room and requested date.",
+      "Validated confirmation emails against expected recipient, date, and time information before accepting a booking.",
+      "Used bounded retries, shared timeouts, and safe stage exits to test failure handling.",
+      "Reviewed pipeline summaries, generated reports, persistent records, and scheduled Raspberry Pi logs after operational runs.",
+    ],
+
+    outcome:
+      "Bifrost replaced a multi-stage manual scheduling process with a repeatable weekday automation workflow. The operational Raspberry Pi deployment coordinates external web and email systems while keeping booking records, reports, and the shared Notion schedule synchronized.",
+
+    technicalHighlights: [
+      "Python automation pipeline",
+      "Playwright browser automation",
+      "Raspberry Pi OS and Linux deployment",
+      "Parallel booking workers with multiprocessing",
+      "Retry, timeout, and safe-failure handling",
+      "Outlook verification and confirmation processing",
+      "JSON-based persistent booking state",
+      "CSV and SMTP reporting",
+      "Notion API synchronization",
+      "Virtual environments, cron, file locking, and SSH administration",
+    ],
+
+    workflow: [
+      {
+        number: 1,
+        title: "Eligible Member Selection",
+        description:
+          "Applies scheduling and eligibility rules to select the members included in the current booking cycle.",
+      },
+      {
+        number: 2,
+        title: "Booking Job Construction",
+        description:
+          "Converts the selected members and target dates into structured room-booking jobs.",
+      },
+      {
+        number: 3,
+        title: "Parallel Room Booking",
+        description:
+          "Runs isolated Playwright workers to find matching room availability and submit booking requests.",
+      },
+      {
+        number: 4,
+        title: "Email Verification",
+        description:
+          "Processes the verification messages required to continue each submitted booking.",
+      },
+      {
+        number: 5,
+        title: "Confirmation Validation",
+        description:
+          "Checks confirmation details against the expected recipient, booking date, and starting time.",
+      },
+      {
+        number: 6,
+        title: "Records and Reporting",
+        description:
+          "Updates confirmed booking records, generates the daily report, and synchronizes the shared schedule.",
+      },
+    ],
+
+    privacyNote:
+      "The source repository, member records, authentication state, credentials, network information, email contents, and operational booking details remain private. Portfolio media will use synthetic names, addresses, room information, and demonstration results.",
+
+    media: [
+      {
+        type: "image",
+        src: `${import.meta.env.BASE_URL}project-media/bifrost-automation-system/Bifrost-raspi.png`,
+        description:
+          "Raspberry Pi 4 inside its actively cooled enclosure.",
+        caption:
+          "The Raspberry Pi 4 hardware that hosts Bifrost’s scheduled, headless automation workflow.",
+      },
+      {
+        type: "video",
+        src: `${import.meta.env.BASE_URL}project-media/bifrost-automation-system/Bifrost-demo.mp4`,
+        description:
+          "Terminal demonstration of the Bifrost automation pipeline using entirely synthetic information.",
+        caption:
+          "Safe demonstration mode: no network requests, file writes, bookings, email activity, or Notion updates occur.",
+      },
+      {
+        type: "image",
+        src: `${import.meta.env.BASE_URL}project-media/bifrost-automation-system/Bifrost-notion-demo.png`,
+        description:
+          "Sanitized demonstration database containing four fictional booking records.",
+        caption:
+          "A sanitized representation of confirmed bookings synchronized to the shared schedule. All names, dates, times, and rooms are fictional.",
+      },
+    ],
+  },  
 ];

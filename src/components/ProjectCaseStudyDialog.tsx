@@ -7,6 +7,7 @@ import {
 import type { FeaturedProject } from "../data/featuredProjects";
 import type { ProjectCaseStudy } from "../data/projectCaseStudies";
 import AnnotatedProjectImage from "./AnnotatedProjectImage";
+import ProjectWorkflow from "./ProjectWorkflow";
 
 import "./ProjectCaseStudyDialog.css";
 
@@ -137,6 +138,10 @@ function ProjectCaseStudyDialog({
         <h3 id={`${headingId}-solution`}>Solution</h3>
         <p>{caseStudy.solution}</p>
         </section>
+
+        {caseStudy.workflow && caseStudy.workflow.length > 0 && (
+          <ProjectWorkflow steps={caseStudy.workflow} />
+        )}
 
         <section aria-labelledby={`${headingId}-contributions`}>
         <h3 id={`${headingId}-contributions`}>My Contributions</h3>

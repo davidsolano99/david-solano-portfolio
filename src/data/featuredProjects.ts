@@ -54,7 +54,7 @@ export const featuredProjects: FeaturedProject[] = [
   {
     slug: 'radio-dnet-survey-tool',
     number: '03',
-    title: 'Radio/DNET Survey Tool',
+    title: 'Radio Survey Tool',
     ownership: 'Independent Build',
     summary:
       'A field-survey application that records GPS and packet-delivery data and produces CSV/KML-compatible output for colour-coded wireless-coverage visualization.',

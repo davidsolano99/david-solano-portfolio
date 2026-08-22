@@ -393,3 +393,194 @@
   -webkit-user-drag: none;
   -webkit-touch-callout: none;
 }
+
+.project-annotation__arrow {
+  opacity: 0.18;
+  transition:
+    opacity 160ms ease,
+    stroke-width 160ms ease;
+}
+
+.project-annotation__arrow--active {
+  stroke-width: 3;
+  opacity: 1;
+}
+
+.project-annotation__marker-button {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  width: clamp(2rem, 3.2vw, 2.75rem);
+  aspect-ratio: 1;
+  padding: 0;
+  place-items: center;
+  color: var(--color-text);
+  background: var(--color-background);
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgb(5 18 26 / 70%);
+  font-family: var(--font-display);
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.project-annotation__marker-button:hover {
+  color: var(--color-background);
+  background: var(--color-accent);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.project-annotation__marker-button--active {
+  color: var(--color-background);
+  background: var(--color-accent);
+  box-shadow:
+    0 0 0 4px rgb(5 18 26 / 80%),
+    0 0 1.5rem rgb(28 199 193 / 45%);
+}
+
+.project-annotation__marker-button:focus-visible {
+  outline: 3px solid var(--color-text);
+  outline-offset: 4px;
+}
+
+.project-annotation__popover {
+  position: absolute;
+  z-index: 4;
+  width: min(16rem, 36%);
+  padding: var(--space-4);
+  color: var(--color-text);
+  background: rgb(5 18 26 / 96%);
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 50%);
+}
+
+.project-annotation__popover--right {
+  transform: translate(2.5rem, -50%);
+}
+
+.project-annotation__popover--left {
+  transform: translate(calc(-100% - 2.5rem), -50%);
+}
+
+.project-annotation__popover--above {
+  transform: translate(-50%, calc(-100% - 2.5rem));
+}
+
+.project-annotation__popover--above-right {
+  transform: translate(2.5rem, calc(-100% + 1rem));
+}
+
+.project-annotation__popover--above-left {
+  transform:
+    translate(calc(-100% - 2.5rem), calc(-100% + 1rem));
+}
+
+.project-annotation__popover-label {
+  margin: 0 0 var(--space-2);
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-annotation__popover h4 {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+}
+
+.project-annotation__popover-description {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.project-annotation__controls {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-line);
+}
+
+.project-annotation__controls > span {
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.project-annotation__controls button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 0;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.project-annotation__controls button:last-child {
+  justify-content: flex-end;
+}
+
+.project-annotation__controls button:hover {
+  color: var(--color-accent);
+}
+
+.project-annotation__controls button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 48rem) {
+  .project-annotation__marker-button {
+    width: 2rem;
+    font-size: 0.7rem;
+    border-width: 1px;
+    box-shadow: 0 0 0 2px rgb(5 18 26 / 75%);
+  }
+
+  .project-annotation__popover,
+  .project-annotation__popover--right,
+  .project-annotation__popover--left,
+  .project-annotation__popover--above,
+  .project-annotation__popover--above-right,
+  .project-annotation__popover--above-left {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    width: 100%;
+    margin-top: var(--space-4);
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-annotation__arrow,
+  .project-annotation__marker-button {
+    transition: none;
+  }
+}
+
+.project-annotation__controls > span,
+.project-annotation__controls button {
+  font-size: 0.65rem;
+}
