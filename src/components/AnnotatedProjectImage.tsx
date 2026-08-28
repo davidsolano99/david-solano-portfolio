@@ -114,14 +114,15 @@ function AnnotatedProjectImage({
   return (
     <figure className="project-annotation">
       <div className="project-annotation__image">
-        <img
-          src={media.src}
-          alt={media.description}
-          draggable={false}
-          onContextMenu={(event) => event.preventDefault()}
-        />
+        <div className="project-annotation__visual">
+          <img
+            src={media.src}
+            alt={media.description}
+            draggable={false}
+            onContextMenu={(event) => event.preventDefault()}
+          />
 
-        <svg
+          <svg
           className="project-annotation__overlay"
           viewBox={`0 0 ${annotationCanvas.width} ${annotationCanvas.height}`}
           aria-hidden="true"
@@ -179,6 +180,7 @@ function AnnotatedProjectImage({
             </button>
           );
         })}
+        </div>
 
         <div
           id={descriptionId}

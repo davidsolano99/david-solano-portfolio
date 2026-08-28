@@ -266,6 +266,12 @@
   margin-inline: auto;
 }
 
+.project-annotation__visual {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
 .project-annotation__image img {
   width: 100%;
   max-height: none;
