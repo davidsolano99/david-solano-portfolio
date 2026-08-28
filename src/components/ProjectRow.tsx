@@ -7,6 +7,7 @@ type ProjectRowProps = {
   summary: string
   technologies: string[]
   repositoryLabel: string
+  onOpenCaseStudy?: () => void
 }
 
 function ProjectRow({
@@ -16,6 +17,7 @@ function ProjectRow({
   summary,
   technologies,
   repositoryLabel,
+  onOpenCaseStudy,
 }: ProjectRowProps) {
   return (
     <article className="project-row">
@@ -26,7 +28,21 @@ function ProjectRow({
 
     <div className="project-row__content">
         <p className="project-row__eyebrow">{ownership}</p>
-        <h3>{title}</h3>
+        <h3>
+          {onOpenCaseStudy ? (
+            <button
+              type="button"
+              className="project-row__title-button"
+              onClick={onOpenCaseStudy}
+              aria-haspopup="dialog"
+            >
+              <span>{title}</span>
+              <span aria-hidden="true">+</span>
+            </button>
+          ) : (
+            title
+          )}
+        </h3>
         <p className="project-row__summary">
         {summary}
         </p>

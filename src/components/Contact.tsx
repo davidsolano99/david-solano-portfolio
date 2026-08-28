@@ -14,7 +14,7 @@ function Contact() {
       </div>
 
       <div className="contact-section__content">
-        <h3>Let&apos;s connect.</h3>
+        <h3>Let&apos;s connect!</h3>
 
         <p>
           I&apos;m open to opportunities in software development, quality
