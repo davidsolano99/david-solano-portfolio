@@ -49,23 +49,6 @@ A collaborative contribution to the University of Calgary Solar Car Team involvi
 - **Deployment:** GitHub Actions and GitHub Pages
 - **Portfolio topics:** Python, PyQt6, Qt/QML, Playwright, SQL, Linux, Raspberry Pi, embedded systems, telemetry, serial/UART, testing, and geospatial visualization
 
-## Run Locally
-
-```bash
-git clone https://github.com/davidsolano99/david-solano-portfolio.git
-cd david-solano-portfolio
-npm install
-npm run dev
-```
-
-## Quality Checks
-
-```bash
-npm run lint
-npm run build
-npm run preview
-```
-
 ## Deployment
 
 The portfolio is deployed to GitHub Pages through a GitHub Actions workflow. Merging an approved change into `main` triggers a production build and publishes the updated website.
