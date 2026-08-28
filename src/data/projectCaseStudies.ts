@@ -30,6 +30,19 @@ export type ProjectMedia = {
 
 export type ProjectCaseStudy = {
   projectSlug: string;
+    company?: {
+    name: string;
+    url: string;
+    relationship: string;
+    description: string;
+    privacyStatement: string;
+  };
+  teamContext?: {
+    role: string;
+    name: string;
+    url: string;
+    description: string;
+  };
   tagline: string;
   overview: string;
   challenge: string;
@@ -53,6 +66,16 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
 
   {
     projectSlug: "quality-control-testing-application",
+
+    company: {
+      name: "BossPac",
+      url: "https://bosspac.com/",
+      relationship: "Developed at",
+      description:
+        "Created as an internal engineering tool during my employment.",
+      privacyStatement:
+        "Source code and operational data remain private.",
+    },
 
     tagline:
       "A Windows desktop application that turns complex embedded-device quality-control procedures into a repeatable, traceable testing workflow.",
@@ -203,10 +226,19 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         layout: "full",
       },
     ],
-  },  
+  },
 
   {
     projectSlug: "radio-dnet-survey-tool",
+      company: {
+      name: "BossPac",
+      url: "https://bosspac.com/",
+      relationship: "Developed at",
+      description:
+        "Created as an internal engineering tool during my employment.",
+      privacyStatement:
+        "Source code and operational data remain private.",
+    },
     tagline:
       "A field-survey application that converts receiver and GPS data into actionable wireless-coverage evidence.",
 
@@ -345,8 +377,8 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
                 "Identifies the installed software release so survey results and support information can be associated with the version used.",
             marker: { x: 160, y: 885 },
             target: { x: 60, y: 915 },
-            },            
-            ],            
+            },
+            ],
         },
         {
             type: "image",
@@ -355,8 +387,8 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
             "Google Earth visualization showing colour-coded wireless survey paths.",
             caption:
             "Sanitized demonstration of the KML output generated from processed receiver and GPS measurements.",
-        },   
-        ],     
+        },
+        ],
   },
 
   {
@@ -481,5 +513,73 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
           "A sanitized representation of confirmed bookings synchronized to the shared schedule. All names, dates, times, and rooms are fictional.",
       },
     ],
-  },  
+  },
+
+  {
+    projectSlug: "solar-car-dashboard-system",
+
+    teamContext: {
+      role: "Dashboard Systems Contributor",
+      name: "University of Calgary Solar Car Team",
+      url: "https://calgarysolarcar.ca/",
+      description:
+        "This case study describes my individual contributions within a collaborative, multidisciplinary student project.",
+    },
+
+    tagline:
+      "A collaborative contribution to real-time vehicle telemetry, Qt/QML dashboard development, and multidisciplinary solar-car systems integration.",
+
+    overview:
+      "From September 2024 to April 2026, I contributed to the University of Calgary Solar Car Team as a Dashboard Systems Contributor. My work supported the vehicle dashboard, telemetry integration, embedded and electrical systems, testing, and competition troubleshooting—including participation in the 2025 Electrek Formula Sun Grand Prix.",
+
+    challenge:
+      "A competition solar car depends on information moving reliably between vehicle electronics, embedded systems, telemetry software, and the driver dashboard. Missing, incorrect, or unclear signals can require investigation across several technical layers and multiple engineering subteams.",
+
+    solution:
+      "As part of the multidisciplinary team, I contributed to Qt/QML dashboard interfaces for vehicle speed, battery state of charge, charging status, and essential vehicle signals. I also debugged telemetry behavior, supported integrated testing, assisted with soldering and electrical work, and helped investigate issues during vehicle testing and competition operations.",
+
+    contributions: [
+      "Debugged telemetry signals and supported their implementation across the vehicle system.",
+      "Developed Qt/QML dashboard UI components for vehicle speed, battery state of charge, charging status, and essential vehicle signals.",
+      "Performed functional and systems-integration testing across telemetry, embedded, and electrical systems.",
+      "Investigated issues crossing dashboard software, embedded hardware, and vehicle electronics.",
+      "Supported electrical assembly and repair through soldering and wiring work.",
+      "Collaborated with telemetry, embedded, electrical, and mechanical team members during testing and competition troubleshooting.",
+    ],
+
+    validation: [
+      "Tested dashboard indicators and telemetry behavior during integrated vehicle testing.",
+      "Investigated missing or inconsistent signals across telemetry, embedded, and electrical systems.",
+      "Worked with multiple subteams to identify the system layer responsible for observed issues.",
+      "Supported real-time technical troubleshooting during the 2025 Electrek Formula Sun Grand Prix.",
+    ],
+
+    outcome:
+      "My contributions supported the development and integration of a driver-facing telemetry dashboard while giving me hands-on experience investigating real-time problems across software, embedded hardware, vehicle electronics, and multidisciplinary engineering teams.",
+
+    technicalHighlights: [
+      "Qt and QML dashboard development",
+      "Real-time vehicle telemetry",
+      "Driver-facing status visualization",
+      "Embedded-systems integration",
+      "Electrical-system troubleshooting",
+      "Functional and systems-integration testing",
+      "Soldering and wiring",
+      "Multidisciplinary competition support",
+    ],
+
+    privacyNote:
+      "No source code, internal telemetry data, or private electrical-system details are presented. This case study focuses only on my individual contributions within the collaborative team project.",
+
+    media: [
+      {
+        type: "image",
+        src: `${import.meta.env.BASE_URL}project-media/solar-car-dashboard-system/solarCar-team.png`,
+        description:
+          "University of Calgary Solar Car Team gathered around its solar-powered vehicle during the 2025 Electrek Formula Sun Grand Prix.",
+        caption:
+          "University of Calgary Solar Car Team at the 2025 Electrek Formula Sun Grand Prix in Bowling Green, Kentucky—a multidisciplinary effort spanning telemetry, embedded systems, electrical integration, testing, and vehicle troubleshooting.",
+      },
+    ],
+  },
 ];

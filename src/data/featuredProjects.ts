@@ -71,18 +71,18 @@ export const featuredProjects: FeaturedProject[] = [
     },
   },
   {
-    slug: 'solar-car-dashboard-systems',
+    slug: 'solar-car-dashboard-system',
     number: '04',
     title: 'Solar Car Dashboard System',
     ownership: 'Collaborative Team Contribution',
     summary:
-      'A multidisciplinary contribution to real-time vehicle telemetry dashboards, embedded-system integration, testing, and competition troubleshooting.',
+      'A multidisciplinary contribution to Qt/QML vehicle dashboards, real-time telemetry, embedded-system integration, testing, and competition troubleshooting.',
     technologies: [
+      'Qt/QML',
       'Telemetry',
       'Embedded Systems',
       'Systems Integration',
       'Testing',
-      'Jira',
     ],
     repository: {
       visibility: 'team-owned',

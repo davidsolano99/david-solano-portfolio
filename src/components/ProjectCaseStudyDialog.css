@@ -614,3 +614,40 @@
     max-height: 28rem;
   }
 }
+
+.project-dialog__company-content {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.project-dialog__company-content .project-dialog__company-name {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.project-dialog__company-content > a {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  gap: var(--space-2);
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.project-dialog__company-content > a span {
+  transition: transform 160ms ease;
+}
+
+.project-dialog__company-content > a:hover span {
+  transform: translate(2px, -2px);
+}
+
+.project-dialog__company-content > a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}

@@ -71,6 +71,63 @@ function ProjectCaseStudyDialog({
           <p>{caseStudy.tagline}</p>
         </header>
 
+        {caseStudy.company && (
+          <section
+            className="project-dialog__company"
+            aria-labelledby={`${headingId}-company`}
+          >
+            <h3 id={`${headingId}-company`}>Company Context</h3>
+
+            <div className="project-dialog__company-content">
+              <p className="project-dialog__company-name">
+                {caseStudy.company.relationship} {caseStudy.company.name}
+              </p>
+
+              <a
+                href={caseStudy.company.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit the official ${caseStudy.company.name} website`}
+              >
+                Official Website
+                <span aria-hidden="true">↗</span>
+              </a>
+
+              <p>{caseStudy.company.description}</p>
+              <p>{caseStudy.company.privacyStatement}</p>
+            </div>
+          </section>
+        )}
+
+        {caseStudy.teamContext && (
+          <section
+            className="project-dialog__team"
+            aria-labelledby={`${headingId}-team`}
+          >
+            <h3 id={`${headingId}-team`}>Team Context</h3>
+
+            <div className="project-dialog__company-content">
+              <p className="project-dialog__company-name">
+                {caseStudy.teamContext.role}
+              </p>
+
+              <p>{caseStudy.teamContext.name}</p>
+
+              <a
+                href={caseStudy.teamContext.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit the official ${caseStudy.teamContext.name} website`}
+              >
+                Official Team Website
+                <span aria-hidden="true">↗</span>
+              </a>
+
+              <p>{caseStudy.teamContext.description}</p>
+            </div>
+          </section>
+        )}
+
         {caseStudy.media.length > 0 && (
         <section
             className="project-dialog__media-section"
